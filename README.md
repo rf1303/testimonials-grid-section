@@ -13,8 +13,6 @@ Users should be able to:
 ### Screenshot
 
 ![](./MacBookPro-1742664046240.jpeg)
-![](./laptopWithMDPIScreen-1742664046242.jpeg)
-![](./iPhoneX-1742664046240.jpeg)
 
 ### Links
 
