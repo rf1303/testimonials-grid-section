@@ -12,7 +12,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./MacBookPro-1742664046240.jpeg)
+![](./screenshot.jpeg)
 
 ### Links
 
