@@ -1,0 +1,213 @@
+@use './reset';
+@use './variables' as *;
+@use './font-face' as *;
+@use './mixin' as *;
+
+@include font-face(barlow, "../fonts/Barlow_Semi_Condensed/BarlowSemiCondensed-Medium.ttf", 500);
+@include font-face(barlow, "../fonts/Barlow_Semi_Condensed/BarlowSemiCondensed-SemiBold.ttf", 600);
+
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: barlow;
+  font-weight: 500;
+  background-color: $grey-100-color;
+}
+
+.layout {
+  display: grid;
+  place-content: center; 
+  min-height: 100vh;
+}
+
+.layout__wrap {
+  width: min(30.5rem, 95%);
+  display: grid;
+  gap: 3.2rem;
+  margin: 5rem auto; 
+}
+
+.wrap__content {
+  @include flexBox(column);
+  gap: 1.6rem;
+  padding: 3.2rem;
+  border-radius: .8rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.wrap__content--1 {
+  background-color: $purple-500-color;
+  box-shadow: $purple-500-color 0px 3px 8px;
+}
+
+.wrap__content--2 {
+  background-color: $grey-500-color;
+  box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 8px;
+}
+
+.wrap__content--3,
+.wrap__content--5 {
+  background-color: $white-color;
+  color: $grey-500-color;
+}
+
+.wrap__content--4 {
+  background-color: $dark-blue-color;
+  box-shadow: rgba(0, 0, 0, 0.94) 0px 3px 8px;
+}
+
+.content__profile {
+  @include flexBox;
+  align-items: center;
+  gap: 1.7rem
+}
+
+.profile__avatar {
+  width: 2.8rem;
+  border-radius: 100%;
+}
+
+.header__name {
+  font-size: 1.3rem;
+  line-height: $text-lh-3;
+  color: $white-color;
+  margin-bottom: .4rem;
+}
+
+.header__verified {
+  font-size: 1.1rem;
+  line-height: $text-lh-3;
+  color: $white-color;
+}
+
+.content__text--1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: $text-lh-2;
+}
+
+.content__text--2 {
+  font-size: 1.3rem;
+  line-height: $text-lh-1; 
+}
+
+.content__img-quota {
+  display: none;
+}
+
+
+.wrap__content--1 .profile__avatar{
+  border: 2px solid $purple-400-color;
+}
+.wrap__content--4 .profile__avatar {
+  border: 2px solid $purple-500-color;
+}
+
+.wrap__content--1 .header__name, 
+.wrap__content--2 .header__name,
+.wrap__content--1 .content__text--1, 
+.wrap__content--2 .content__text--1{
+  color: $white-color;
+}
+
+.wrap__content--1 .header__verified, 
+.wrap__content--1 .content__text--2{
+  color: $purple-50-color;
+}
+
+.wrap__content--2 .header__verified, 
+.wrap__content--5 .header__verified {
+  color: $grey-300-color;
+}
+
+.wrap__content--2 .content__text--2, 
+.wrap__content--4 .content__text--2 {
+  color: $grey-100-color;
+}
+
+.wrap__content--4 .content__text--1 {
+  color: $grey-200-color;
+}
+
+.wrap__content--3 .header__name, 
+.wrap__content--5 .header__name,
+.wrap__content--3 .content__text--1, 
+.wrap__content--5 .content__text--1{
+  color: $grey-500-color;
+}
+
+.wrap__content--3 .header__verified, 
+.wrap__content--5 .header__verified,
+.wrap__content--3 .content__text--2, 
+.wrap__content--5 .content__text--2{
+  color: $grey-400-color;
+}
+
+@media (min-width:650px) {
+  .layout__wrap {
+    width: 64.7rem;
+    margin: 8rem auto;
+    /* padding: 0; */
+    grid-template-columns: repeat(2, minmax(30.75rem, 1fr));
+    grid-template-areas:
+                        "daniel    daniel"
+                        "jonathan Jeanette"
+                        "patrick  patrick "
+                        "kira     kira ";
+  } 
+  .wrap__content--1 {
+    grid-area: daniel;
+  }
+  .wrap__content--2 {
+    grid-area: jonathan;
+  }
+  .wrap__content--3 {
+    grid-area: Jeanette;
+  }
+  .wrap__content--4 {
+    grid-area: patrick;
+  }
+  .wrap__content--5 {
+    grid-area: kira;
+  }
+}
+
+@media (min-width:1200px) {
+  .layout__wrap {
+    width: 111.4rem;
+    margin: 8rem auto;
+    padding: 0;
+    grid-template-columns: repeat(4, minmax(25.5rem, 1fr));
+    grid-template-areas:
+                        "daniel   daniel   jonathan kira "
+                        "Jeanette patrick  patrick  kira";
+  } 
+  .wrap__content--1 {
+    grid-area: daniel;
+  }
+  .wrap__content--2 {
+    grid-area: jonathan;
+  }
+  .wrap__content--3 {
+    grid-area: Jeanette;
+  }
+  .wrap__content--4 {
+    grid-area: patrick;
+  }
+  .wrap__content--5 {
+    grid-area: kira;
+  }
+}
+
+@media (max-width:320px) {
+  .wrap__content {
+    padding: 1.2rem;
+  }  
+  .wrap__content--3 .content__text--2, 
+  .wrap__content--5 .content__text--2{
+    color: $grey-333-color;
+  }
+}
