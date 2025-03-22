@@ -26,7 +26,7 @@ body {
 .layout__wrap {
   width: min(30.5rem, 95%);
   display: grid;
-  gap: 3.2rem;
+  gap: 3rem;
   margin: 5rem auto; 
 }
 
@@ -87,6 +87,7 @@ body {
   font-size: 2rem;
   font-weight: 600;
   line-height: $text-lh-2;
+  z-index: 9;
 }
 
 .content__text--2 {
@@ -150,7 +151,6 @@ body {
   .layout__wrap {
     width: 64.7rem;
     margin: 8rem auto;
-    /* padding: 0; */
     grid-template-columns: repeat(2, minmax(30.75rem, 1fr));
     grid-template-areas:
                         "daniel    daniel"
@@ -159,6 +159,7 @@ body {
                         "kira     kira ";
   } 
   .wrap__content--1 {
+    position: relative;
     grid-area: daniel;
   }
   .wrap__content--2 {
@@ -173,6 +174,14 @@ body {
   .wrap__content--5 {
     grid-area: kira;
   }
+  .wrap__content--1 .content__img-quota {
+    display: inline-block; 
+    position: absolute;
+    right: 6rem;
+    top: 0;
+    z-index: 0;
+  }
+
 }
 
 @media (min-width:1200px) {
